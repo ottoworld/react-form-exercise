@@ -1,0 +1,26 @@
+.heading {
+    margin-bottom: 32px;
+}
+
+.form  {
+    display: flex;
+    flex-direction: column;
+    gap: 24px
+}
+
+.formItem  {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.formMultiItem  {
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+
+.formCheckbox  {
+    display: flex;
+    gap: 8px
+}
