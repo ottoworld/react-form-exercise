@@ -1,5 +1,7 @@
-.heading {
-    margin-bottom: 32px;
+.sections {
+   display: flex;
+    flex-direction: column;
+    gap: 32px
 }
 
 .form  {
