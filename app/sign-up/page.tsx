@@ -1,13 +1,11 @@
 import styles from "./sign-up.module.css";
-import { signUp, User } from "@/app/actions";
+import { getUsers, signUpForm } from "@/app/actions";
 
 export default function SignUpPage() {
-  const users: User[] = [];
-
   return (
     <div className={styles.sections}>
       <h2>Sign up page</h2>
-      <form className={styles.form} action={signUp}>
+      <form className={styles.form} action={signUpForm}>
         <div className={styles.formItem}>
           <label htmlFor="sign-up-name">Full name</label>
           <input name="name" id="sign-up-name" type="text" />
@@ -38,12 +36,14 @@ export default function SignUpPage() {
       </form>
       <h2 className={styles.heading}>User list</h2>
       <div>
-        {users.map((user) => {
-          return (
-            <p key={user.name}>
-              User {user.name} is age {user.age}
-            </p>
-          );
+        {getUsers().then((users) => {
+          return users.map((user) => {
+            return (
+              <p key={user.id}>
+                User {user.name} is age {user.age}
+              </p>
+            );
+          });
         })}
       </div>
     </div>

@@ -1,13 +1,71 @@
+import { randomInt } from "node:crypto";
+
 export type User = {
+  id: string;
   name: string;
   age: number;
   country: string;
   interests: string[];
 };
 
-const usersMap = new Map<string, User>();
+const dbSelectAllUsers: User[] = [
+  {
+    name: "Mr Fake",
+    age: 85,
+    country: "UK",
+    id: crypto.randomUUID(),
+    interests: ["Movies"],
+  },
+];
 
-export async function signUp(formData: FormData) {
+const dbSelectAllInterests: string[] = [
+  "Gaming",
+  "Music",
+  "Travel",
+  "Cooking",
+  "Fitness",
+  "Photography",
+  "Reading",
+  "Movies",
+  "Technology",
+  "Art",
+];
+
+const dbSelectAllCountries: string[] = [
+  "United Kingdom",
+  "United States",
+  "Canada",
+  "Germany",
+  "France",
+  "Japan",
+  "Australia",
+  "Brazil",
+  "India",
+  "Netherlands",
+];
+
+export async function getUsers() {
+  "use server";
+
+  await timeout(randomInt(2) * 1000);
+  return dbSelectAllUsers;
+}
+
+export async function getInterests() {
+  "use server";
+
+  await timeout(randomInt(2) * 1000);
+  return dbSelectAllInterests;
+}
+
+export async function getCountries() {
+  "use server";
+
+  await timeout(randomInt(2) * 1000);
+  return dbSelectAllCountries;
+}
+
+export async function signUpForm(formData: FormData) {
   "use server";
 
   const dob = new Date(formData.get("dob") as string);
@@ -18,20 +76,19 @@ export async function signUp(formData: FormData) {
     age--;
   }
 
-  const userId = crypto.randomUUID();
   const user: User = {
+    id: crypto.randomUUID(),
     name: formData.get("name") as string,
     age: age,
     country: formData.get("country") as string,
     interests: [],
   };
 
-  await timeout(2000);
+  await timeout(randomInt(3) * 1000);
 
-  usersMap.set(userId, user);
-
-  console.log(`New user registered: ${user.name} (ID: ${userId})`);
-  console.log(`Total users: ${usersMap.size}`);
+  console.log(`New user registered: ${user.name} (ID: ${user.id})`);
+  dbSelectAllUsers.push(user);
+  console.log(`Total users: ${dbSelectAllUsers.length}`);
 }
 
 // Source - https://stackoverflow.com/a/63006702
