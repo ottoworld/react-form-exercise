@@ -28,7 +28,14 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className={styles.page}>
           <nav className={styles.pageNav}>
-            <h1>React Form Exercise</h1>
+            <div className={styles.navTitle}>
+              <h1>React</h1>
+              <div className={styles.navTitleLine}></div>
+            </div>
+            <div className={styles.navTitle}>
+              <div className={styles.navTitleLine}></div>
+              <h1>Exercise</h1>
+            </div>
           </nav>
           <main className={styles.pageMain}>{children}</main>
         </div>

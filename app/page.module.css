@@ -1,23 +1,36 @@
 .page {
   --pageMainPaddingInline: 24px;
   display: flex;
+  background: var(--background);
+  min-height: 100vh;
 }
 
 .pageNav {
   padding: 24px;
-  flex-basis: fit-content;
-  background: lightgray;
-  max-width: 100vw;
+  flex-grow: 2;
+  max-width: 500px;
+  background: var(--background-secondary);
 }
 
 .pageMain {
   padding-block: 24px;
   padding-inline: var(--pageMainPaddingInline);
-  flex-grow: 1;
-
+  flex-grow: 3;
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+.navTitle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.navTitleLine {
+  flex-grow: 1;
+  height: 3px;
+  background: var(--foreground);
 }
 
 @media (min-width: 768px) {
