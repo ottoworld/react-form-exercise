@@ -1,9 +1,10 @@
 import styles from "./sign-up.module.css";
 import { getUsers, signUpForm } from "@/app/actions";
+import Link from "next/link";
 
 export default function SignUpPage() {
   return (
-    <div className={styles.sections}>
+    <>
       <h2>Sign up page</h2>
       <form className={styles.form} action={signUpForm}>
         <div className={styles.formItem}>
@@ -39,13 +40,13 @@ export default function SignUpPage() {
         {getUsers().then((users) => {
           return users.map((user) => {
             return (
-              <p key={user.id}>
+              <Link key={user.id} href={`/users/${user.id}`}>
                 User {user.name} is age {user.age}
-              </p>
+              </Link>
             );
           });
         })}
       </div>
-    </div>
+    </>
   );
 }
