@@ -1,6 +1,5 @@
 import styles from "./sign-up.module.css";
-import { getUsers, signUpForm } from "@/app/actions";
-import Link from "next/link";
+import { signUpForm } from "@/app/actions";
 
 export default function SignUpPage() {
   return (
@@ -36,17 +35,6 @@ export default function SignUpPage() {
         <button>Create account</button>
       </form>
       <h2 className={styles.heading}>User list</h2>
-      <div>
-        {getUsers().then((users) => {
-          return users.map((user) => {
-            return (
-              <Link key={user.id} href={`/users/${user.id}`}>
-                User {user.name} is age {user.age}
-              </Link>
-            );
-          });
-        })}
-      </div>
     </>
   );
 }

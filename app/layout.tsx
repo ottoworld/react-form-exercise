@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import styles from "@/app/page.module.css";
+import UsersDialogComponent from "@/components/users-dialog/users-dialog";
+import UsersListComponent from "@/components/users-list/users-list";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +38,9 @@ export default function RootLayout({
               <div className={styles.navTitleLine}></div>
               <h1>Exercise</h1>
             </div>
+            <UsersDialogComponent>
+              <UsersListComponent />
+            </UsersDialogComponent>
           </nav>
           <main className={styles.pageMain}>{children}</main>
         </div>

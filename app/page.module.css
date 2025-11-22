@@ -9,6 +9,9 @@
   padding: 24px;
   flex-grow: 2;
   max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   background: var(--background-secondary);
 }
 
