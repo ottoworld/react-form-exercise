@@ -1,11 +1,11 @@
 import styles from "./sign-up.module.css";
 import { getCountries, getInterests, signUpForm } from "@/app/actions";
 import PageTitleComponent from "@/components/page-title/page-title";
+import SubmitButtonComponent from "@/components/submit-button/submit-button";
 
 export default async function SignUpPage() {
   const interests = await getInterests();
   const countries = await getCountries();
-
   return (
     <>
       <PageTitleComponent>Sign up page</PageTitleComponent>
@@ -37,7 +37,10 @@ export default async function SignUpPage() {
             </label>
           ))}
         </fieldset>
-        <button>Create account</button>
+        <SubmitButtonComponent pendingText="Creating account...">
+          Create account
+        </SubmitButtonComponent>
+        <div>{}</div>
       </form>
     </>
   );
