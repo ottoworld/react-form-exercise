@@ -8,16 +8,6 @@ export type User = {
   interests: string[];
 };
 
-const dbSelectAllUsers: User[] = [
-  {
-    name: "Mr Fake",
-    age: 85,
-    country: "UK",
-    id: crypto.randomUUID(),
-    interests: ["Movies"],
-  },
-];
-
 const dbSelectAllInterests: string[] = [
   "Gaming",
   "Music",
@@ -44,11 +34,37 @@ const dbSelectAllCountries: string[] = [
   "Netherlands",
 ];
 
+const dbSelectAllUsers: User[] = [
+  {
+    name: "Mr Fake",
+    age: 85,
+    country: dbSelectAllCountries[0],
+    id: crypto.randomUUID(),
+    interests: [dbSelectAllInterests[0]],
+  },
+  {
+    name: "Miss Fib",
+    age: 29,
+    country: dbSelectAllCountries[1],
+    id: crypto.randomUUID(),
+    interests: [dbSelectAllInterests[1]],
+  },
+];
+
 export async function getUsers() {
   "use server";
 
   await timeout(randomInt(2) * 1000);
   return dbSelectAllUsers;
+}
+
+export async function getUser(userId: string): Promise<User | undefined> {
+  "use server";
+
+  const foundUser = dbSelectAllUsers.find((user) => user.id === userId);
+
+  await timeout(randomInt(2) * 1000);
+  return foundUser;
 }
 
 export async function getInterests() {

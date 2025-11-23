@@ -1,10 +1,11 @@
 import styles from "./sign-up.module.css";
 import { signUpForm } from "@/app/actions";
+import PageTitleComponent from "@/components/page-title/page-title";
 
 export default function SignUpPage() {
   return (
     <>
-      <h2>Sign up page</h2>
+      <PageTitleComponent>Sign up page</PageTitleComponent>
       <form className={styles.form} action={signUpForm}>
         <div className={styles.formItem}>
           <label htmlFor="sign-up-name">Full name</label>
