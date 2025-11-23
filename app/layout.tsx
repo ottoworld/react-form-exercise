@@ -4,6 +4,7 @@ import "./globals.css";
 import styles from "@/app/page.module.css";
 import UsersDialogComponent from "@/components/users-dialog/users-dialog";
 import UsersListComponent from "@/components/users-list/users-list";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
               <div className={styles.navTitleLine}></div>
               <h1>Exercise</h1>
             </div>
+            <Link href="/sign-up">Sign up</Link>
             <UsersDialogComponent>
               <UsersListComponent />
             </UsersDialogComponent>
