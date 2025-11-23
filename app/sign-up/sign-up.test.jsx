@@ -36,4 +36,11 @@ describe("SignUpPage", () => {
     const input = screen.getByLabelText("Country");
     expect(input).toBeRequired();
   });
+
+  it("country should be a dropdown", () => {
+    render(<SignUpPage />);
+
+    const input = screen.getByLabelText("Country");
+    expect(input).toBeInstanceOf(HTMLSelectElement);
+  });
 });
