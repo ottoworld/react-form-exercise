@@ -17,7 +17,7 @@ export default function SignUpPage() {
         </div>
         <div className={styles.formItem}>
           <label htmlFor="sign-up-country">Country</label>
-          <select name="country" id="sign-up-country">
+          <select name="country" id="sign-up-country" required>
             <option>UK</option>
             <option>USA</option>
           </select>

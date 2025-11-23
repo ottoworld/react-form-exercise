@@ -12,21 +12,28 @@ describe("SignUpPage", () => {
   it("full name should be required", () => {
     render(<SignUpPage />);
 
-    const nameInput = screen.getByLabelText("Full name");
-    expect(nameInput).toBeRequired();
+    const input = screen.getByLabelText("Full name");
+    expect(input).toBeRequired();
   });
 
   it("full name should be type text", () => {
     render(<SignUpPage />);
 
-    const nameInput = screen.getByLabelText("Full name");
-    expect(nameInput).toHaveAttribute("type", "text");
+    const input = screen.getByLabelText("Full name");
+    expect(input).toHaveAttribute("type", "text");
   });
 
-  it("age should be required", () => {
+  it("date of birth should be required", () => {
     render(<SignUpPage />);
 
-    const nameInput = screen.getByLabelText("Date of birth");
-    expect(nameInput).toBeRequired();
+    const input = screen.getByLabelText("Date of birth");
+    expect(input).toBeRequired();
+  });
+
+  it("country should be required", () => {
+    render(<SignUpPage />);
+
+    const input = screen.getByLabelText("Country");
+    expect(input).toBeRequired();
   });
 });
