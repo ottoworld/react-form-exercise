@@ -9,7 +9,7 @@ export default function SignUpPage() {
       <form className={styles.form} action={signUpForm}>
         <div className={styles.formItem}>
           <label htmlFor="sign-up-name">Full name</label>
-          <input name="name" id="sign-up-name" type="text" />
+          <input name="name" id="sign-up-name" type="text" required />
         </div>
         <div className={styles.formItem}>
           <label htmlFor="sign-up-date">Date of birth</label>

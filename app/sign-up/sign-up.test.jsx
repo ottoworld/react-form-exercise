@@ -8,4 +8,11 @@ describe("SignUpPage", () => {
 
     expect(screen.getByText("Sign up page"));
   });
+
+  it("should require full name", () => {
+    render(<SignUpPage />);
+
+    const nameInput = screen.getByLabelText("Full name");
+    expect(nameInput).toBeRequired();
+  });
 });
