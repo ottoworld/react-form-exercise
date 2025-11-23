@@ -1,25 +1,26 @@
 .sections {
 }
 
-.form  {
-    display: flex;
-    flex-direction: column;
-    gap: 24px
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.formItem  {
-    display: flex;
-    flex-direction: column;
-    gap: 8px
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.formMultiItem  {
-    display: flex;
-    flex-direction: column;
-    gap: 16px
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
 }
 
-.formCheckbox  {
-    display: flex;
-    gap: 8px
+.formCheckbox {
+  display: flex;
+  gap: 8px;
 }

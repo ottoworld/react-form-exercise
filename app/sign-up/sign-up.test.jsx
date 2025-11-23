@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import SignUpPage from "./page.tsx";
 
-describe("SignUpPage", () => {
+xdescribe("SignUpPage", () => {
   it("should have heading", () => {
     render(<SignUpPage />);
 

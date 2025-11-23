@@ -1,8 +1,11 @@
 import styles from "./sign-up.module.css";
-import { signUpForm } from "@/app/actions";
+import { getCountries, getInterests, signUpForm } from "@/app/actions";
 import PageTitleComponent from "@/components/page-title/page-title";
 
-export default function SignUpPage() {
+export default async function SignUpPage() {
+  const interests = await getInterests();
+  const countries = await getCountries();
+
   return (
     <>
       <PageTitleComponent>Sign up page</PageTitleComponent>
@@ -18,24 +21,24 @@ export default function SignUpPage() {
         <div className={styles.formItem}>
           <label htmlFor="sign-up-country">Country</label>
           <select name="country" id="sign-up-country" required>
-            <option>UK</option>
-            <option>USA</option>
+            {countries.map((country, index) => (
+              <option key={index} value={country}>
+                {country}
+              </option>
+            ))}
           </select>
         </div>
-        <div className={styles.formMultiItem}>
-          <label htmlFor="sign-up-interests">Interests</label>
-          <label className={styles.formCheckbox}>
-            <input type="checkbox" value="movies" name="sign-up-interests" />
-            Movies
-          </label>
-          <label className={styles.formCheckbox}>
-            <input type="checkbox" value="games" name="sign-up-interests" />
-            Games
-          </label>
-        </div>
+        <fieldset className={styles.fieldset} aria-required="true">
+          <legend>Interests</legend>
+          {interests.map((interest, index) => (
+            <label key={index} className={styles.formCheckbox}>
+              <input type="checkbox" value={interest} />
+              {interest}
+            </label>
+          ))}
+        </fieldset>
         <button>Create account</button>
       </form>
-      <h2 className={styles.heading}>User list</h2>
     </>
   );
 }
