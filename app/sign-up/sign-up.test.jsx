@@ -22,4 +22,11 @@ describe("SignUpPage", () => {
     const nameInput = screen.getByLabelText("Full name");
     expect(nameInput).toHaveAttribute("type", "text");
   });
+
+  it("age should be required", () => {
+    render(<SignUpPage />);
+
+    const nameInput = screen.getByLabelText("Date of birth");
+    expect(nameInput).toBeRequired();
+  });
 });

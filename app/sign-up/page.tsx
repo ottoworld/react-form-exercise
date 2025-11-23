@@ -13,7 +13,7 @@ export default function SignUpPage() {
         </div>
         <div className={styles.formItem}>
           <label htmlFor="sign-up-date">Date of birth</label>
-          <input name="dob" type="date" id="sign-up-date" />
+          <input name="dob" type="date" id="sign-up-date" required />
         </div>
         <div className={styles.formItem}>
           <label htmlFor="sign-up-country">Country</label>
