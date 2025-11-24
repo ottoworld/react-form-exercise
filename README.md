@@ -36,4 +36,4 @@ Fill in the form and submit to create a new user account. Use the "Find user" di
 
 - Check the `sign-up.test.jsx` file, and the `test: ...` commits, for the unit tests used during TDD. These have been skipped with `xdescribe` due to [lack of support from Jest for async server components](https://nextjs.org/docs/app/guides/testing/jest). Next step would be to implement end-to-end testing with Cypress.
 - The colours and the interactive elements need a full a11y review to check alignment with WCAG standards. This should be done through automatic testing on the pipeline, as well as manual A11y approval before release.
-
+- The sign-up form has no feedback once the request has completed successfully, and it only has console errors and URL params when there's an error. Next step would be to implement an error alert that pulls from the URL params, or to [convert the form to a client-side component](https://nextjs.org/docs/app/guides/forms#form-validation) that can tap into `useActionState`.

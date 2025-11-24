@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./users-dialog.module.css";
 import NavButtonComponent from "@/components/nav-button/nav-button";
 
@@ -10,10 +11,15 @@ export interface UsersDialogProps {
 
 export default function UsersDialogComponent({ children }: UsersDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const pathname = usePathname();
 
   const handleClick = () => {
     dialogRef.current?.showModal();
   };
+
+  useEffect(() => {
+    dialogRef.current?.close();
+  }, [pathname]);
 
   return (
     <>

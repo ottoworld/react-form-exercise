@@ -39,7 +39,7 @@ body {
 a {
   text-align: center;
   text-decoration: none;
-  border: 2px solid var(--interactive);
+  border-right: 2px solid var(--interactive);
   color: var(--foreground);
   padding: 8px;
   font-size: var(--font-size);

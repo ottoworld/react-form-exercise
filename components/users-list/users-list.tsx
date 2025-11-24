@@ -7,15 +7,14 @@ const users = await getUsers();
 
 export default async function UsersListComponent() {
   return (
-    <div>
+    <div className={styles.users}>
       <PageTitleComponent>Find users</PageTitleComponent>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            <Link href={`/user/${user.id}`}> {user.name}</Link>
-          </li>
-        ))}
-      </ul>
+      {users.map((user) => (
+        <Link className={styles.link} key={user.id} href={`/user/${user.id}`}>
+          {" "}
+          {user.name}
+        </Link>
+      ))}
     </div>
   );
 }
