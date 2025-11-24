@@ -102,9 +102,9 @@ export async function signUpForm(formData: FormData) {
 
   const schema = z.object({
     name: z.string().min(1),
-    age: z.coerce.number().min(1).max(18),
+    age: z.coerce.number().min(18).max(150),
     country: z.string().min(1),
-    interests: z.array(z.string().min(1)).min(1),
+    interests: z.array(z.string()).min(1),
   });
 
   const dob = new Date(formData.get("dob") as string);
@@ -114,21 +114,22 @@ export async function signUpForm(formData: FormData) {
   if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
     age--;
   }
+  console.log(formData.getAll("interests"));
 
   const safeParseResult = schema.safeParse({
     name: formData.get("name"),
     age: age,
     country: formData.get("country"),
-    interests: formData.get("interests"),
+    interests: formData.getAll("interests"),
   });
 
   if (safeParseResult.success) {
     const user: User = {
       id: crypto.randomUUID(),
-      name: formData.get("name") as string,
-      age: age,
-      country: formData.get("country") as string,
-      interests: [],
+      name: safeParseResult.data.name,
+      age: safeParseResult.data.age,
+      country: safeParseResult.data.country,
+      interests: safeParseResult.data.interests,
     };
     console.log(`New user registered: ${user.name} (ID: ${user.id})`);
     dbSelectAllUsers.push(user);

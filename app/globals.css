@@ -2,6 +2,8 @@
   --background: #ffffff;
   --background-secondary: #e5e5e5;
   --foreground: #171717;
+  --interactive: #ce7e5a;
+  --brand: #ce7e5a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -9,6 +11,8 @@
     --background: #101010;
     --background-secondary: #3b3b3b;
     --foreground: #ededed;
+    --interactive: #a64d19;
+    --brand: #a64d19;
   }
 }
 
@@ -33,11 +37,24 @@ body {
 }
 
 a {
-  color: purple;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid var(--interactive);
+  color: var(--foreground);
+  padding: 8px;
+  font-size: var(--font-size);
+}
+
+a:hover {
+  background-color: var(--interactive);
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+}
+
+ul {
+  padding-inline-start: 40px;
 }

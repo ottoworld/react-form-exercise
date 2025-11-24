@@ -2,6 +2,7 @@
 
 import { useFormStatus } from "react-dom";
 import { ButtonHTMLAttributes } from "react";
+import NavButtonComponent from "@/components/nav-button/nav-button";
 
 export interface SubmitButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,8 +17,8 @@ export default function SubmitButtonComponent({
   const { pending } = useFormStatus();
 
   return (
-    <button disabled={pending} {...rest}>
+    <NavButtonComponent disabled={pending} {...rest}>
       {pendingText && pending ? pendingText : children}
-    </button>
+    </NavButtonComponent>
   );
 }

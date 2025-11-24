@@ -32,7 +32,7 @@ export default async function SignUpPage() {
           <legend>Interests</legend>
           {interests.map((interest, index) => (
             <label key={index} className={styles.formCheckbox}>
-              <input type="checkbox" value={interest} />
+              <input type="checkbox" name="interests" value={interest} />
               {interest}
             </label>
           ))}

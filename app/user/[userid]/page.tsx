@@ -14,7 +14,7 @@ export default async function UserPage(props: PageProps<"/user/[userid]">) {
       <ul>
         <li>Age: {user.age}</li>
         <li>Country: {user.country}</li>
-        <li>Interests: TODO</li>
+        <li>Interests: {user.interests.map((interest) => `${interest} `)}</li>
         <li>ID: {user.id}</li>
       </ul>
     </>

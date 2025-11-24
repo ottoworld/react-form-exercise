@@ -1,3 +1,10 @@
 .button {
-  color: red;
+  padding: 8px;
+  border: 2px solid var(--interactive);
+  color: var(--foreground);
+  font-size: var(--font-size);
+}
+
+.button:hover {
+  background-color: var(--interactive);
 }

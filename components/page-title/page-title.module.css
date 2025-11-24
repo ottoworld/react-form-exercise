@@ -1,2 +1,5 @@
 .title {
+  color: var(--foreground);
+  border-bottom: 2px solid var(--brand);
+  padding: 8px;
 }

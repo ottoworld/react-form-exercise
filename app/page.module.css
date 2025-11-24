@@ -33,7 +33,7 @@
 .navTitleLine {
   flex-grow: 1;
   height: 3px;
-  background: var(--foreground);
+  background: var(--brand);
 }
 
 @media (min-width: 768px) {
